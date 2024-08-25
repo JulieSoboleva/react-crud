@@ -1,0 +1,21 @@
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    min-height: 100vh;
+    height: 100%;
+    /* border: solid black 1px; */
+    /* border-radius: 50px; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    /* border: solid black 1px; */
+}
+
+.loading {
+    margin-top: 20px;
+}
