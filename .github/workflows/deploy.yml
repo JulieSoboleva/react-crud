@@ -33,12 +33,15 @@ jobs:
   deploy:
     name: Deploy
     needs: build
-    env:
-      VITE_SERVER_URL: 'https://react-crud-backend-nvm1.onrender.com'
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Set environment variable
+        env:
+          VITE_SERVER_URL: 'https://react-crud-backend-nvm1.onrender.com'
+        run: echo $VITE_SERVER_URL
+
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
