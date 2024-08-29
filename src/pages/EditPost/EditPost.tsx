@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-import { baseURL } from '../../App';
 import { IPost, ISavePostProps } from '../../models';
 import { createRequest, getPosts } from '../../loaders';
 
@@ -30,7 +29,7 @@ export const EditPost = () => {
         }
 
         getPosts();
-        navigate(`${baseURL}/`);
+        navigate('/');
     }
 
     return (
@@ -39,7 +38,7 @@ export const EditPost = () => {
                 <div className='card'>
                     <div className='head-holder'>
                         <span className='post-editor_header'>Редактировать публикацию</span>
-                        <Link to={`${baseURL}/`}>
+                        <Link to={'/'}>
                             <CloseIcon style={{ cursor: 'pointer' }} />
                         </Link>
                     </div>

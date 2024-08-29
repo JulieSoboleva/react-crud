@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { baseURL } from '../../App';
 import { createRequest, getPosts } from '../../loaders';
 import { INewPostSubmitProps } from '../../models';
 
@@ -26,7 +25,7 @@ export const AddPost = () => {
         }
         
         getPosts();
-        navigate(`${baseURL}/`);
+        navigate('/');
     };
 
     return (
@@ -34,7 +33,7 @@ export const AddPost = () => {
             <div className='container'>
                 <div className='card'>
                     <div className='head-holder'>
-                        <Link to={`${baseURL}/`}>
+                        <Link to={'/'}>
                             <CloseIcon style={{ cursor: 'pointer' }} />
                         </Link>
                     </div>

@@ -1,7 +1,5 @@
 import { LoaderFunction, defer } from 'react-router-dom';
 
-const baseURL = 'https://react-crud-backend-nvm1.onrender.com';
-
 interface IRequestProps {
     query: string,
     method: string,
@@ -10,7 +8,7 @@ interface IRequestProps {
 }
 
 export const getPosts = async () => {
-    const res = await fetch(`${baseURL}/posts`);
+    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/posts`);
     return res.json();
 };
 
@@ -22,13 +20,13 @@ export const postsLoader: LoaderFunction = async () => {
 
 export const postLoader: LoaderFunction = async ({ params }) => {
     const { id } = params;
-    const res = await fetch(`${baseURL}/posts/${id}`);
+    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/posts/${id}`);
     const post = await res.json();
     return post;
 };
 
 export const createRequest = async ({ query, method, content, id }: IRequestProps) => {
-    let requestURL = `${baseURL}/${query}`;
+    let requestURL = `${import.meta.env.VITE_SERVER_URL}/${query}`;
     if (id) {
         requestURL += `/${id}`;
     }

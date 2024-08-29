@@ -14,18 +14,16 @@ import { EditPost } from './pages/EditPost';
 
 import './App.css';
 
-export const baseURL = '/react-crud';
-
 export default function App() {
   const routes = createBrowserRouter(
     createRoutesFromElements(
-      <Route path={`${baseURL}/`} element={<Layout />}>
-        <Route index path={`${baseURL}/`} element={<Posts />} loader={postsLoader} />
-        <Route path={`${baseURL}/posts/:id`} element={<Post />} loader={postLoader} />
-        <Route path={`${baseURL}/posts/new`} element={<AddPost />} />
-        <Route path={`${baseURL}/posts/edit/:id`} element={<EditPost />} loader={postLoader}/>
+      <Route path={'/'} element={<Layout />} >
+        <Route index path={'/'} element={<Posts />} loader={postsLoader} />
+        <Route path={'/posts/:id'} element={<Post />} loader={postLoader} />
+        <Route path={'/posts/new'} element={<AddPost />} />
+        <Route path={'/posts/edit/:id'} element={<EditPost />} loader={postLoader}/>
       </Route>
-    )
+    ), { basename: '/react-crud', }
   );
   return (
     <RouterProvider router={routes} />

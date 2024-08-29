@@ -4,7 +4,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import { Link, useNavigate, useLoaderData } from 'react-router-dom';
 
-import { baseURL } from '../../App';
 import { IPost, IPostClickProps } from '../../models';
 import { createRequest, getPosts } from '../../loaders';
 
@@ -25,7 +24,7 @@ export const Post = () => {
         }
 
         getPosts();
-        navigate(`${baseURL}/`);
+        navigate('/');
     };
 
     return (
@@ -33,7 +32,7 @@ export const Post = () => {
             <div className='container'>
                 <div className='card'>
                     <div className='head-holder'>
-                        <Link to={`${baseURL}/`}>
+                        <Link to={'/'}>
                             <CloseIcon style={{ cursor: 'pointer' }} />
                         </Link>
                     </div>
@@ -47,7 +46,7 @@ export const Post = () => {
                     
 
                     <div className='btn-holder'>
-                        <Link to={`${baseURL}/posts/edit/${post.id}`}>
+                        <Link to={`/posts/edit/${post.id}`}>
                             <Button variant='contained' color='primary'>
                                 Изменить
                             </Button>
