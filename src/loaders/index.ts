@@ -1,5 +1,7 @@
 import { LoaderFunction, defer } from 'react-router-dom';
 
+const apiURL = import.meta.env.VITE_SERVER_URL;
+
 interface IRequestProps {
     query: string,
     method: string,
@@ -8,7 +10,7 @@ interface IRequestProps {
 }
 
 export const getPosts = async () => {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/posts`);
+    const res = await fetch(`${apiURL}/posts`);
     return res.json();
 };
 
@@ -20,13 +22,13 @@ export const postsLoader: LoaderFunction = async () => {
 
 export const postLoader: LoaderFunction = async ({ params }) => {
     const { id } = params;
-    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/posts/${id}`);
+    const res = await fetch(`${apiURL}/posts/${id}`);
     const post = await res.json();
     return post;
 };
 
 export const createRequest = async ({ query, method, content, id }: IRequestProps) => {
-    let requestURL = `${import.meta.env.VITE_SERVER_URL}/${query}`;
+    let requestURL = `${apiURL}/${query}`;
     if (id) {
         requestURL += `/${id}`;
     }
